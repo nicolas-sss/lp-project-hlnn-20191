@@ -31,12 +31,13 @@ width = 0.35  # the width of the bars
 
 fig, ax = plt.subplots()
 rects1 = ax.bar(ind - width/2, men_means, width,
-                color='SkyBlue', label='Men')
+                color='SkyBlue', label='Homem')
 rects2 = ax.bar(ind + width/2, women_means, width,
-                color='IndianRed', label='Women')
+                color='IndianRed', label='Mulher')
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Taxa de suicidios ')
+ax.set_xlabel('Ano')
 ax.set_title('Suicidios pelo ano e pelo genero')
 ax.set_xticks(ind)
 ax.set_xticklabels(years)
