@@ -11,7 +11,7 @@ filtro2 =  (df['indicator'] == 'SP.DYN.LE00.FE.IN')
 filtro3 = (df['indicator'] == 'SP.DYN.LE00.MA.IN')
 
 grouped = df.where(filtro1 | filtro2 | filtro3 ).dropna()
-grouped = grouped.groupby(['year','indicator']).apply()#.agg({'value':'mean'})
+grouped = grouped.groupby(['year','indicator']).agg({'value':'mean'})
 grouped = grouped.reset_index(level=['year', 'indicator'])
 print grouped
 
@@ -28,4 +28,4 @@ plt.plot( 'year', 'value', data=grouped.where(grouped['indicator'] == 'SP.DYN.LE
 plt.plot( 'year', 'value',  linestyle='-', data=grouped.where(grouped['indicator'] == 'SP.DYN.LE00.MA.IN').dropna(), marker='o', color='skyblue', linewidth=2, markerfacecolor='blue', markersize=4)
 plt.plot( 'year', 'value',  linestyle='-', data=grouped.where(grouped['indicator'] == 'SP.DYN.LE00.FE.IN').dropna(), marker='o', color='lightcoral', linewidth=2, markerfacecolor='indianred', markersize=4)
 plt.legend()
-# plt.show()
+plt.show()
